@@ -7,11 +7,9 @@ import com.polytech.services.PublicationService;
 import com.polytech.web.FeedController;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.jdbc.datasource.embedded.EmbeddedDatabase;
 import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseBuilder;
 
 import javax.sql.DataSource;
-import java.sql.Connection;
 import java.sql.SQLException;
 
 @Configuration
@@ -40,7 +38,9 @@ public class AppConfig{
 
     @Bean
     public DataSource dataSource(){
-        return new EmbeddedDatabaseBuilder().build();
+        return new EmbeddedDatabaseBuilder()
+                .addScript("db.sql")
+                .build();
 
     }
 }
