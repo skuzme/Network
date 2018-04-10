@@ -2,12 +2,14 @@ package com.polytech.services;
 
 import com.polytech.persistence.StoryRepository;
 
-import java.util.Arrays;
-import java.util.List;
 
 public class PublicationService {
 
-    StoryRepository storyRepository = new StoryRepository();
+    private StoryRepository storyRepository;
+
+    public PublicationService(StoryRepository storyRepository) {
+        this.storyRepository = storyRepository;
+    }
 
 
     public void addStory(Story story) {
